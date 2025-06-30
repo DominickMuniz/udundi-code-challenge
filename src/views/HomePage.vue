@@ -40,13 +40,15 @@ while Vue's state toggles the necessary classes to trigger those transitions. */
                 'fade-out': !showModal && contentVisible,
               }"
             >
-              <img
-                src="@/assets/base-app-images/icon-close.svg"
-                alt="Close"
-                @click="toggleModal"
-                class="modal-close"
-              />
-              <h2 class="modal-title modern-mobile-modal-title">Explore</h2>
+              <div class="modal-header-sticky">
+                <img
+                  src="@/assets/base-app-images/icon-close.svg"
+                  alt="Close"
+                  @click="toggleModal"
+                  class="modal-close"
+                />
+                <h2 class="modal-title modern-mobile-modal-title">Explore</h2>
+              </div>
               <p class="modal-text modern-mobile-modal-text">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
                 doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore

@@ -148,8 +148,39 @@
   letter-spacing: 1.69px;
   background: linear-gradient(90deg, #611818 0%, #a36754 100%);
 }
+.modal-header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white; /* or match modal bg */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+}
 
 @media (max-width: 1024px) {
+  h1.hero-title.modern-mobile-title::after {
+    content: '';
+    position: absolute;
+    top: 58%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: lightgray;
+    transform: translateY(-50%);
+    width: 75%;
+    margin: 0 auto;
+  }
+  .modal-close {
+    right: 25px;
+    width: 15px;
+    top: 10px;
+    height: 15px;
+    cursor: pointer;
+  }
+
   .mobile-modal-fix {
     position: fixed !important;
     left: 50% !important;
@@ -162,7 +193,7 @@
     height: max-content;
     z-index: 9999;
     box-shadow: 0 8px 32px 0 rgba(40, 40, 40, 0.18);
-    border-radius: 1.2rem;
+    border-radius: 0;
     background: #fff;
     overflow-y: auto;
     display: flex;
@@ -219,7 +250,7 @@
     justify-content: flex-start;
     gap: 1.1rem;
     margin: 1.1rem 0 0 0;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 2rem;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.18);
     padding: 0.5rem 1.5rem;
@@ -275,7 +306,7 @@
     min-height: 220px;
     max-height: 320px;
     background: #5b1e1e;
-    border-radius: 1.2rem;
+    border-radius: 4px;
     box-shadow: 0 8px 32px 0 rgba(40, 40, 40, 0.18);
     z-index: 2;
     display: flex;
@@ -325,7 +356,7 @@
     justify-content: center;
     gap: 1.1rem;
     margin: 1.1rem auto 0 auto;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 2rem;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.18);
     padding: 0.5rem 1.5rem;
