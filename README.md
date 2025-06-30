@@ -11,6 +11,9 @@ View the site: https://dominickmuniz.github.io/udundi-code-challenge/
 
 ![Desktop Open](readme-images/desktop-open.png)
 
-![Mobile Closed](readme-images/mobile-closed.png)
 
-![Mobile Open](readme-images/mobile-open.png)
+
+
+<img src="readme-images/mobile-closed.png" alt="Mobile Closed" style="max-height:500px;" />
+
+<img src="readme-images/mobile-open.png" alt="Mobile Open" style="max-height:500px;" />
