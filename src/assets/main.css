@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Layout & Panel */
 .hero-container {
   @apply relative flex h-screen w-screen bg-cover bg-center;
   background-image: url('/src/assets/base-app-images/homepage-hero-image.png');
@@ -35,12 +36,13 @@
 }
 
 .hero-button-label {
-  @apply text-white;
+  color: #fff;
   font-weight: 400;
   font-size: 25px;
   letter-spacing: 0.63px;
 }
 
+/* Social Icons */
 .social-icons {
   @apply absolute bottom-8 right-8 flex flex-col space-y-4 z-20;
 }
@@ -49,13 +51,14 @@
   @apply w-[68px] h-[68px];
 }
 
+/* Modal Structure */
 .hero-modal-wrapper {
   position: relative;
 }
 
 .hero-modal {
   position: absolute;
-  bottom: 0%;
+  bottom: 0;
   left: 0;
   width: 580px;
   height: 690px;
@@ -118,7 +121,7 @@
   font-weight: 700;
   font-size: 66px;
   line-height: 100%;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   color: rgba(97, 24, 24, 1);
   font-family: Didot, serif;
 }
@@ -148,19 +151,22 @@
   letter-spacing: 1.69px;
   background: linear-gradient(90deg, #611818 0%, #a36754 100%);
 }
+
 .modal-header-sticky {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: white; /* or match modal bg */
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 0px 8px 0px;
+  padding: 0 0 8px 0;
   width: 100%;
 }
 
+/* Responsive Styles */
 @media (max-width: 1024px) {
+  /* Hero underline for mobile */
   h1.hero-title.modern-mobile-title::after {
     content: '';
     position: absolute;
@@ -173,12 +179,35 @@
     width: 75%;
     margin: 0 auto;
   }
+
   .modal-close {
-    right: 25px;
-    width: 15px;
     top: 10px;
-    height: 15px;
-    cursor: pointer;
+  }
+
+  .plus-icon {
+    @apply w-[30px] h-[30px];
+    margin-right: -16px;
+  }
+
+  .modal-content.modern-mobile-modal-content {
+    align-items: flex-start;
+    text-align: left;
+    padding: 2rem 1.2rem 1.2rem;
+    min-height: 320px;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 0;
+  }
+
+  .modal-title.modern-mobile-modal-title {
+    font-size: 2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .modal-text.modern-mobile-modal-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
   }
 
   .mobile-modal-fix {
@@ -192,7 +221,7 @@
     min-height: 60vh;
     height: max-content;
     z-index: 9999;
-    box-shadow: 0 8px 32px 0 rgba(40, 40, 40, 0.18);
+    box-shadow: 0 8px 32px rgba(40, 40, 40, 0.18);
     border-radius: 0;
     background: #fff;
     overflow-y: auto;
@@ -208,59 +237,43 @@
       opacity 0.3s ease-in-out;
   }
 
-  .plus-icon {
-    @apply w-[30px] h-[30px];
-    margin-right: -16px;
-  }
-
-  .hero-modal {
-    transform-origin: center !important;
-  }
   .mobile-modal-fix.scale-100 {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
   }
+
   .mobile-modal-fix.scale-0 {
     transform: translate(-50%, -50%) scale(0.2);
     opacity: 0;
     pointer-events: none;
   }
-  .modal-content.modern-mobile-modal-content {
-    align-items: flex-start;
-    text-align: left;
-    padding: 2rem 1.2rem 1.2rem 1.2rem;
-    min-height: 320px;
-    width: 100%;
-    box-sizing: border-box;
+
+  .hero-modal {
+    transform-origin: center;
   }
-  .modal-title.modern-mobile-modal-title {
-    font-size: 2rem;
-    margin-bottom: 0.7rem;
-  }
-  .modal-text.modern-mobile-modal-text {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1.2rem;
-  }
+
   .modern-social-icons-pill {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 1.1rem;
-    margin: 1.1rem 0 0 0;
+    margin: 1.1rem auto 0;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 2rem;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.18);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
     padding: 0.5rem 1.5rem;
     width: fit-content;
     align-items: center;
+    position: absolute;
+    top: 130%;
   }
-  /* Hide the desktop modal on mobile */
+
   .modern-mobile-modal {
     display: none !important;
   }
+
   .mobile-full-vh {
     min-height: 100vh;
     height: 100dvh;
@@ -270,6 +283,7 @@
     align-items: center;
     background: #000;
   }
+
   .hero-image-square {
     width: 100vw;
     height: 100vh !important;
@@ -277,8 +291,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 0;
-    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -287,6 +299,7 @@
     position: relative;
     min-height: 800px;
   }
+
   .hero-image-gradient-overlay {
     position: absolute;
     inset: 0;
@@ -295,6 +308,7 @@
     border-radius: 1.5rem 1.5rem 0 0;
     pointer-events: none;
   }
+
   .mobile-red-panel-modern {
     position: absolute;
     left: 50%;
@@ -307,14 +321,15 @@
     max-height: 320px;
     background: #5b1e1e;
     border-radius: 4px;
-    box-shadow: 0 8px 32px 0 rgba(40, 40, 40, 0.18);
+    box-shadow: 0 8px 32px rgba(40, 40, 40, 0.18);
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+    padding: 1.5rem 1.2rem 1.2rem;
   }
+
   .modern-mobile-content {
     width: 100%;
     align-items: center;
@@ -325,6 +340,7 @@
     justify-content: center;
     height: 100%;
   }
+
   .modern-mobile-title {
     font-size: 4rem;
     font-weight: 800;
@@ -333,8 +349,9 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 0.1rem;
   }
+
   .modern-mobile-btn {
-    margin: 0.5rem 0 0.5rem 0;
+    margin: 0.5rem 0;
     border-radius: 2rem;
     font-size: 16px;
     padding: 0.6rem 1.5rem;
@@ -344,35 +361,20 @@
     display: flex;
     align-items: center;
     border: none;
-    box-shadow: 0 2px 8px 0 rgba(97, 24, 24, 0.1);
+    box-shadow: 0 2px 8px rgba(97, 24, 24, 0.1);
     transition: background 0.2s;
   }
+
   .modern-mobile-btn:active {
     background: linear-gradient(90deg, #a36754 0%, #611818 100%);
   }
-  .modern-social-icons-pill {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1.1rem;
-    margin: 1.1rem auto 0 auto;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 2rem;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.18);
-    padding: 0.5rem 1.5rem;
-    width: fit-content;
-    align-items: center;
-    position: absolute;
-    top: 130%;
-  }
+
   .social-icon {
     width: 50px;
     height: 50px;
-
     border-radius: 9999px;
     background: transparent;
     padding: 0.2rem;
-
     display: block;
   }
 
@@ -380,11 +382,8 @@
     display: none !important;
   }
 }
-@media (max-width: 1024px) {
-  .modal-content {
-    gap: 0px;
-  }
-}
+
+/* Desktop Social Icons */
 @media (min-width: 1024px) {
   .desktop-social-icons {
     position: fixed;
@@ -395,6 +394,7 @@
     gap: 1rem;
     z-index: 20;
   }
+
   .desktop-social-icons .social-icon {
     width: 68px;
     height: 68px;
