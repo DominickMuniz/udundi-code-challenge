@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.app {
+  overflow: hidden;
+}
 /* Layout & Panel */
 .hero-container {
   @apply relative flex h-screen w-screen bg-cover bg-center;
@@ -58,10 +61,10 @@
 
 .hero-modal {
   position: absolute;
-  bottom: 0;
+  bottom: -65px;
   left: 0;
   width: 580px;
-  height: 690px;
+  min-height: 690px;
   background: white;
   z-index: 40;
   visibility: hidden;
@@ -86,7 +89,7 @@
 }
 
 .modal-content {
-  @apply flex flex-col h-full w-full;
+  @apply flex flex-col  w-full;
   padding: 72px 66px;
   gap: 28px;
   position: relative;
@@ -145,7 +148,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 26px;
   font-family: Lato, sans-serif;
   font-size: 18px;
   letter-spacing: 1.69px;
@@ -160,7 +163,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0 8px 0;
+  padding: 16px 0 8px 0;
   width: 100%;
 }
 
@@ -181,7 +184,7 @@
   }
 
   .modal-close {
-    top: 10px;
+    margin-bottom: 8px;
   }
 
   .plus-icon {
@@ -192,7 +195,7 @@
   .modal-content.modern-mobile-modal-content {
     align-items: flex-start;
     text-align: left;
-    padding: 2rem 1.2rem 1.2rem;
+    padding: 0px 1.2rem 1.2rem;
     min-height: 320px;
     width: 100%;
     box-sizing: border-box;
@@ -218,9 +221,9 @@
     width: 90vw;
     max-width: 420px;
     min-width: 220px;
-    min-height: 60vh;
-    height: max-content;
     z-index: 9999;
+    min-height: max-content;
+
     box-shadow: 0 8px 32px rgba(40, 40, 40, 0.18);
     border-radius: 0;
     background: #fff;
@@ -318,10 +321,13 @@
     min-width: 220px;
     max-width: 420px;
     min-height: 220px;
-    max-height: 320px;
+
     background: #5b1e1e;
     border-radius: 4px;
     box-shadow: 0 8px 32px rgba(40, 40, 40, 0.18);
+    /*box-shadow:
+      6px 11px 30px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.56);*/
     z-index: 2;
     display: flex;
     flex-direction: column;
