@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/views/HomePage.vue'
-import HomePageKeyframes from '@/views/HomePageKeyframes.vue'
+import HomePageKeyframes from '@/views/HomePageKeyFrames.vue'
 
 const routes = [
   {
