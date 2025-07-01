@@ -1,0 +1,158 @@
+.custom-animation-d {
+  animation: customAnimationD 1s ease-in-out forwards;
+}
+
+.custom-animation-shape-change {
+  animation: customAnimationShapeChange 1s ease-in-out 1s forwards;
+}
+
+.custom-animation-modal {
+  animation: customAnimationModal 0.4s ease-in-out 1.9s forwards;
+}
+
+/* 1C. Animation to have the modal content fade in */
+@keyframes customAnimationModal {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  85% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* 1A. Animation to shrink and grow the button upon first click */
+@keyframes customAnimationD {
+  0% {
+    transform: scale(1);
+
+    background: transparent;
+    border-radius: 100%;
+  }
+
+  50% {
+    transform: scale(0.2);
+  }
+
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+
+    background: white;
+    border-radius: 100%;
+  }
+}
+/* 1B. Animation to have the plus icon shift into hexigon and grow outward to fix modal*/
+@keyframes customAnimationShapeChange {
+  0% {
+    height: 30px;
+    width: 30px;
+    opacity: 1;
+    z-index: 3;
+    clip-path: polygon(4% 4%, 51% 1%, 96% 4%, 99% 49%, 95% 95%, 49% 100%, 5% 95%, 0 49%);
+  }
+
+  65% {
+    clip-path: polygon(4% 4%, 51% 1%, 96% 4%, 99% 49%, 95% 95%, 49% 100%, 5% 95%, 0 49%);
+  }
+
+  100% {
+    width: 580px;
+    z-index: 3;
+    opacity: 1;
+
+    clip-path: polygon(0 0, 49% 0, 100% 0, 100% 49%, 100% 100%, 49% 100%, 0 100%, 0 50%);
+  }
+}
+
+#squircle,
+.squircle {
+  /* Pillowed superellipse shape */
+  clip-path: polygon(4% 4%, 51% 1%, 96% 4%, 99% 49%, 95% 95%, 49% 100%, 5% 95%, 0 49%);
+}
+
+@media (max-width: 768px) {
+  .is-mobile .custom-animation-modal {
+    animation: customAnimationModalMobile 0.4s ease-in-out 1.9s forwards;
+  }
+
+  .is-mobile .custom-animation-shape-change {
+    animation: customAnimationShapeChangeMobile 1s ease-in-out 1s forwards;
+  }
+
+  .is-mobile .custom-animation-d {
+    animation: customAnimationDMobile 1s ease-in-out forwards;
+  }
+  .is-mobile #squircle,
+  .is-mobile .squircle {
+    position: fixed;
+
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Optional: allow smoother mobile scaling if needed */
+    width: auto;
+    height: auto;
+  }
+}
+
+@keyframes customAnimationModalMobile {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  85% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes customAnimationShapeChangeMobile {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    left: 50%;
+    height: 30px;
+    width: 30px;
+    opacity: 1;
+    z-index: 3;
+    clip-path: polygon(4% 4%, 51% 1%, 96% 4%, 99% 49%, 95% 95%, 49% 100%, 5% 95%, 0 49%);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+
+    left: 50%;
+    width: 90vw;
+    z-index: 3;
+    opacity: 1;
+    clip-path: polygon(0 0, 49% 0, 100% 0, 100% 49%, 100% 100%, 49% 100%, 0 100%, 0 50%);
+  }
+}
+
+@keyframes customAnimationDMobile {
+  0% {
+    transform: scale(1);
+    background: transparent;
+    border-radius: 100%;
+  }
+
+  50% {
+    transform: scale(0.2);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+    background: white;
+    border-radius: 100%;
+  }
+}

@@ -16,54 +16,23 @@ while Vue's state toggles the necessary classes to trigger those transitions. */
       <div class="hero-image-gradient-overlay"></div>
       <!-- Overlapping red panel for mobile, visually integrated -->
       <div class="mobile-red-panel-modern">
-        <div class="modern-mobile-content">
-          <h1 class="hero-title modern-mobile-title">Explore</h1>
-
-          <button class="hero-button modern-mobile-btn" @click="toggleModal">
-            <img src="@/assets/base-app-images/icon-plus.svg" class="plus-icon" alt="" />
-            <span class="hero-button-label">More Details</span>
-          </button>
-          <!-- Mobile modal overlay -->
-          <div
-            v-if="!isFullyClosed"
-            class="hero-modal mobile-modal-fix"
+        <div class="modern-mobile-content" style="gap: 36px; display: flex">
+          <h1
             :class="{
-              'scale-100': showModal,
-              'scale-0': !showModal,
+              'opacity-0 -translate-x-10': showModal,
+              'opacity-100 translate-x-0': !showModal,
             }"
-            :style="{ visibility: isFullyClosed ? 'hidden' : 'visible' }"
-            @transitionend="onModalTransitionEnd"
+            class="hero-title"
           >
-            <div
-              class="modal-content modern-mobile-modal-content"
-              :class="{
-                'fade-in': showModal && contentVisible,
-                'fade-out': !showModal && contentVisible,
-              }"
-            >
-              <div class="modal-header-sticky">
-                <img
-                  src="@/assets/base-app-images/icon-close.svg"
-                  alt="Close"
-                  @click="toggleModal"
-                  class="modal-close"
-                />
-                <h2 class="modal-title modern-mobile-modal-title">Explore</h2>
-              </div>
-              <p class="modal-text modern-mobile-modal-text">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-                voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
-                qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
-                numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-                suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-              </p>
-              <button class="modal-read-more">READ MORE</button>
-            </div>
-          </div>
+            Explore
+          </h1>
+
+          <span style="color: white; padding-top: 16px">
+            Mobile version of the keyframe transition is NOT built out. Please view it in desktop or
+            <router-link to="/" style="color: #add8e6; text-decoration: underline">
+              switch to the CSS Transition version</router-link
+            >.
+          </span>
           <div class="modern-social-icons-pill">
             <!-- Clean SVG for Facebook -->
             <svg
@@ -115,52 +84,8 @@ while Vue's state toggles the necessary classes to trigger those transitions. */
         >
           Explore
         </h1>
+        <ModalButton :show-modal="showModal" />
 
-        <div class="hero-modal-wrapper">
-          <button class="hero-button" @click="toggleModal">
-            <img src="@/assets/base-app-images/icon-plus.svg" class="plus-icon" alt="" />
-            <span class="hero-button-label">More Details</span>
-          </button>
-          <!-- Modal (works for both mobile and desktop, but overlays on mobile) -->
-          <div
-            class="hero-modal modern-mobile-modal"
-            :class="{
-              'scale-100': showModal,
-              'scale-0': !showModal,
-              'mobile-modal-fix': showModal, // add overlay/fixed only when open on mobile
-            }"
-            :style="{ visibility: isFullyClosed ? 'hidden' : 'visible' }"
-            @transitionend="onModalTransitionEnd"
-          >
-            <div
-              class="modal-content modern-mobile-modal-content"
-              :class="{
-                'fade-in': showModal && contentVisible,
-                'fade-out': !showModal && contentVisible,
-              }"
-            >
-              <img
-                src="@/assets/base-app-images/icon-close.svg"
-                alt="Close"
-                @click="toggleModal"
-                class="modal-close"
-              />
-              <h2 class="modal-title modern-mobile-modal-title">Explore</h2>
-              <p class="modal-text modern-mobile-modal-text">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-                voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
-                qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
-                numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-                suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-              </p>
-              <button class="modal-read-more">READ MORE</button>
-            </div>
-          </div>
-        </div>
         <div class="modern-social-icons-pill desktop-social-icons">
           <img
             src="@/assets/base-app-images/icon-facebook.svg"
@@ -181,30 +106,9 @@ while Vue's state toggles the necessary classes to trigger those transitions. */
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import ModalButton from '@/components/ModalButton/ModalButton.vue'
+import { ref } from 'vue'
 const showModal = ref(false)
-const contentVisible = ref(false)
-const isFullyClosed = ref(true)
-
-const toggleModal = () => {
-  if (!showModal.value) {
-    isFullyClosed.value = false
-    contentVisible.value = true
-    requestAnimationFrame(() => {
-      showModal.value = true
-    })
-  } else {
-    showModal.value = false
-  }
-}
-
-const onModalTransitionEnd = () => {
-  if (!showModal.value) {
-    contentVisible.value = false
-    isFullyClosed.value = true
-  }
-}
 </script>
 
-<style src="@/assets/main.css"></style>
+<style src="@/assets/keyframe-page.css"></style>

@@ -1,0 +1,69 @@
+.custom-animation-modal-reverse {
+  animation: customAnimationModalReverse 0.4s ease-in-out forwards;
+}
+
+.custom-animation-d-reverse {
+  animation: customAnimationDReverse 1s ease-in-out forwards;
+}
+
+.custom-animation-shape-change-reverse {
+  animation: customAnimationShapeChangeReverse 1s ease-in-out forwards;
+}
+
+@keyframes customAnimationModalReverse {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  85% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+@keyframes customAnimationDReverse {
+  0% {
+    transform: scale(1);
+    background: white;
+    border-radius: 100%;
+  }
+
+  50% {
+    transform: scale(0.2);
+  }
+
+  100% {
+    transform: scale(1);
+    background: transparent;
+    border-radius: 100%;
+  }
+}
+
+@keyframes customAnimationShapeChangeReverse {
+  0% {
+    opacity: 1;
+    width: 580px;
+    height: var(--start-height);
+
+    clip-path: polygon(0 0, 49% 0, 100% 0, 100% 49%, 100% 100%, 49% 100%, 0 100%, 0 50%);
+  }
+
+  50% {
+    opacity: 1;
+    height: 290px;
+    clip-path: polygon(0 0, 49% 0, 100% 0, 100% 49%, 100% 100%, 49% 100%, 0 100%, 0 50%);
+  }
+  75% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    clip-path: polygon(4% 4%, 51% 1%, 96% 4%, 99% 49%, 95% 95%, 49% 100%, 5% 95%, 0 49%);
+  }
+}

@@ -1,9 +1,9 @@
-<script setup lang="ts">
-// import HelloWorld from './components/HelloWorld.vue'
-// import TheWelcome from './components/TheWelcome.vue'
-import HomePage from './views/HomePage.vue'
-</script>
-
 <template>
-  <HomePage />
+  <NavigationMenu />
+  <router-view />
 </template>
+
+<script setup lang="ts">
+import NavigationMenu from './components/NavigationMenu/NavigationMenu.vue'
+import HomePage from '@/views/HomePage.vue'
+</script>
