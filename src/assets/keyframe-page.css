@@ -176,17 +176,23 @@
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #fff;
+  }
   /* Hero underline for mobile */
-  h1.hero-title.modern-mobile-title::after {
+  h1.hero-title::after {
     content: '';
     position: absolute;
-    top: 58%;
+    top: 128%;
     left: 0;
     right: 0;
     height: 1px;
     background: lightgray;
     transform: translateY(-50%);
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
   }
 
